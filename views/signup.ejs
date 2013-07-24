@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/css/bootstrap-responsive.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body class="signin">
+    <div class="container">
+
+        <%if (message) { %>
+            <div class="alert fade in alert-style">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong><%= message %></strong>
+            </div>
+        <% } %>
+
+        <form class="form-signin" method='post' action='/user/create'>
+            <h2 class="form-signin-heading">Please Sign Up</h2>
+            <input type="text" name="email" class="input-block-level" placeholder="Email address">
+            <input type="text" name="name" class="input-block-level" placeholder="Name">
+            <input type="text" name="city" class="input-block-level" placeholder="Boston, MA">
+            <input type="password" name="password" class="input-block-level" placeholder="Password">
+            <input type="password" name="confirm" class="input-block-level" placeholder="Confirm">
+            <button class="btn btn-large btn-primary" type="submit">Sign Up</button>
+        </form>
+
+    </div> <!-- /container -->
+  </body>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-latest.js'></script>
+  <script type='text/javascript' src='/js/bootstrap.js'></script>
+  <script type='text/javascript'>
+    $(".alert").alert();
+  </script>
+</html>

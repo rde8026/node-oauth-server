@@ -1,0 +1,22 @@
+# Create Temp Key
+curl -i -v \
+-H 'Content-Type : application/json; charset=utf-8' \
+-X POST -d '{"username":"bob", "password":"secret", "consumerKey":"abc123"}' 'http://localhost:8085/create/key'
+
+# Exchange Temp key for Access Token
+curl -i -v \
+-X GET 'http://localhost:8085/generate/token/gc3Mp1eV1AiWMgEPPJyP4rKyg'
+
+# Create test app
+curl -i -v \
+-H 'Content-Type : application/json; charset=utf-8' \
+-X POST -d '{"name":"testApp"}' 'http://localhost:8085/api/app'
+
+# Find App By Name
+curl -i -v \
+-X GET 'http://localhost:8085/api/app/testApp'
+
+
+forever start -l forever.log -o out.log -e err.log -a app.js
+
+NODE_ENV=development forever start -l forever.log -o out.log -e err.log -a app.js
